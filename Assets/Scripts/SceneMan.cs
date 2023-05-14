@@ -68,4 +68,8 @@ public class SceneMan : MonoBehaviour
      {
           SceneManager.LoadScene("mainMenu");
      }
+     public void ClearAllData()
+     {
+          PlayerPrefs.DeleteAll();
+     }
 }
