@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Timer : MonoBehaviour
 {
     public GameObject gagal, sukses;
-    public Text timerText, scoreText;
+    public Text timerText, scoreText, checkScore;
     private float currentTime;
     public static bool gameActive;
     public static string currentOperation;
@@ -28,7 +28,7 @@ public class Timer : MonoBehaviour
     {
         gameActive = true;
         currentOperation = sceneMap[SceneMan.prevScene.ToString()];
-        currentTime = 30f;
+        currentTime = 15f;
         prevScene = SceneMan.prevScene.ToString();
 
     }
@@ -50,6 +50,7 @@ public class Timer : MonoBehaviour
         gameActive = false;
         if (answerCorrect)
             sukses.SetActive(true);
+            checkScore.text = PlayerPrefs.GetInt(currentOperation + "Score", 0).ToString();
     }
 
     public static void CheckAnswer(int correctAnswer, Button clickedButton, Text AnswerText)
